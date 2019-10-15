@@ -1,6 +1,6 @@
 package com.hackthon.solatech.dto;
 
-public class StatusDTO {
+public class StatusRes {
 	
 	Long applicationId;
 	String statusName;
