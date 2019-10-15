@@ -1,6 +1,6 @@
 package com.hackthon.solatech.entity;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,13 +18,13 @@ import javax.persistence.OneToOne;
 public class Representative {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String firstName;
 	private String lastName;
 	private String address;
 	private String citizenShip;
-	private Date date;
+	private LocalDateTime dateOfBirth;
 	private String phoneNumber;
 	private String passportNumber;
 
@@ -32,7 +32,7 @@ public class Representative {
 	@JoinColumn(name = "corporate_id")
 	private Corporate corporate;
 
-	protected Representative() {
+	public Representative() {
 	}
 
 	public Representative(String firstName, String lastName) {
@@ -68,12 +68,12 @@ public class Representative {
 		this.citizenShip = citizenShip;
 	}
 
-	public Date getDate() {
-		return date;
+	public LocalDateTime getDateOfBirth() {
+		return dateOfBirth;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDate(LocalDateTime dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 
 	public String getPhoneNumber() {
