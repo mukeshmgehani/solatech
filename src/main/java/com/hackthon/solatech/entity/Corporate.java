@@ -1,5 +1,7 @@
 package com.hackthon.solatech.entity;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,6 +29,9 @@ public class Corporate {
 	String revenueLastYear;
 	@Column(name = "FinancialStatement")
 	String financialStatement;
+
+	private Integer age;
+	private BigDecimal currentDebt;
 
 	public Long getCorporate_id() {
 		return corporate_id;
@@ -74,6 +79,34 @@ public class Corporate {
 
 	public void setFinancialStatement(String financialStatement) {
 		this.financialStatement = financialStatement;
+	}
+
+	/**
+	 * @return the age
+	 */
+	public Integer getAge() {
+		return age;
+	}
+
+	/**
+	 * @param age the age to set
+	 */
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+	/**
+	 * @return the currentDebt
+	 */
+	public BigDecimal getCurrentDebt() {
+		return currentDebt;
+	}
+
+	/**
+	 * @param currentDebt the currentDebt to set
+	 */
+	public void setCurrentDebt(BigDecimal currentDebt) {
+		this.currentDebt = currentDebt;
 	}
 
 }
