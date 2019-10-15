@@ -20,13 +20,13 @@ public class Representative {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String firstName;
-	private String lastName;
+	private String name;
 	private String address;
 	private String citizenShip;
 	private LocalDateTime dateOfBirth;
 	private String phoneNumber;
 	private String passportNumber;
+	private String email;
 
 	@OneToOne
 	@JoinColumn(name = "corporate_id")
@@ -35,22 +35,12 @@ public class Representative {
 	public Representative() {
 	}
 
-	public Representative(String firstName, String lastName) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-	}
+	
 
 	public Long getId() {
 		return id;
 	}
 
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
 
 	public String getAddress() {
 		return address;
@@ -96,15 +86,26 @@ public class Representative {
 		this.id = id;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
 	
+	
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
 	/**
 	 * @return the corporate
 	 */
@@ -119,8 +120,49 @@ public class Representative {
 		this.corporate = corporate;
 	}
 
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	/**
+	 * @param dateOfBirth the dateOfBirth to set
+	 */
+	public void setDateOfBirth(LocalDateTime dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
 	@Override
 	public String toString() {
-		return String.format("Representative[id=%d, firstName='%s', lastName='%s']", id, firstName, lastName);
+		StringBuilder builder = new StringBuilder();
+		builder.append("Representative [id=");
+		builder.append(id);
+		builder.append(", name=");
+		builder.append(name);
+		builder.append(", address=");
+		builder.append(address);
+		builder.append(", citizenShip=");
+		builder.append(citizenShip);
+		builder.append(", dateOfBirth=");
+		builder.append(dateOfBirth);
+		builder.append(", phoneNumber=");
+		builder.append(phoneNumber);
+		builder.append(", passportNumber=");
+		builder.append(passportNumber);
+		builder.append(", email=");
+		builder.append(email);
+		builder.append(", corporate=");
+		builder.append(corporate);
+		builder.append("]");
+		return builder.toString();
 	}
 }

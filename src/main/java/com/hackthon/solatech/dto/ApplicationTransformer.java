@@ -40,25 +40,29 @@ public class ApplicationTransformer {
 
 
 	public Corporate applicationRequestBoToCorporate(LoanApplicationRequestBo loanApplicationRequestBo) {
+		lOGGER.info("ApplicationTransformer.applicationRequestBoToCorporate has been called");
 		Corporate corporate=new Corporate();
 		corporate.setAddress(loanApplicationRequestBo.getCorporateAddress());
 		corporate.setFinancialStatement(loanApplicationRequestBo.getCorporateFinancialStatement());
 		corporate.setLegalStructure(loanApplicationRequestBo.getCorporateLegalStructure());
 		corporate.setName(loanApplicationRequestBo.getCorporateName());
 		corporate.setRevenueLastYear(loanApplicationRequestBo.getCorporateRevenueLastYear());
+		corporate.setAge(loanApplicationRequestBo.getCorporateAge());
+		corporate.setCurrentDebt(loanApplicationRequestBo.getCorporateCurrentDebt());
 		return corporate;
 	}
 
 
 	public Representative applicationRequestBoToRepresentative(LoanApplicationRequestBo loanApplicationRequestBo, Corporate corporate) {
+		lOGGER.info("ApplicationTransformer.applicationRequestBoToRepresentative has been called");
 		Representative representative=new Representative();
 		representative.setAddress(loanApplicationRequestBo.getRepresentiveAddress());
 		representative.setCitizenShip(loanApplicationRequestBo.getRepresentiveCitizenShip());
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_FORMATTER);
         LocalDate formatDateTime = LocalDate.parse(loanApplicationRequestBo.getRepresentiveDateOfBirth(), formatter);
 		representative.setDate(formatDateTime.atStartOfDay());
-		representative.setFirstName(loanApplicationRequestBo.getRepresentiveFirstName());
-		representative.setLastName(loanApplicationRequestBo.getRepresentiveLastName());
+		representative.setName(loanApplicationRequestBo.getRepresentiveName());
+		representative.setEmail(loanApplicationRequestBo.getRepresentiveEmail());
 		representative.setPassportNumber(loanApplicationRequestBo.getRepresentivePassportNumber());
 		representative.setPhoneNumber(loanApplicationRequestBo.getRepresentivePhoneNumber());
 		representative.setCorporate(corporate);

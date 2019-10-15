@@ -16,15 +16,16 @@ public class LoanApplicationRequestBo {
 	private String corporateLegalStructure;
 	private String corporateRevenueLastYear;
 	private String corporateFinancialStatement;
-	private String representiveFirstName;
-	private String representiveLastName;
+	private Integer corporateAge;
+	private BigDecimal corporateCurrentDebt;
+
+	private String representiveName;
 	private String representiveAddress;
 	private String representiveCitizenShip;
 	private String representiveDateOfBirth;
 	private String representivePhoneNumber;
 	private String representivePassportNumber;
-	
-	
+	private String representiveEmail;
 
 	/**
 	 * @return the amount
@@ -139,34 +140,6 @@ public class LoanApplicationRequestBo {
 	}
 
 	/**
-	 * @return the representiveFirstName
-	 */
-	public String getRepresentiveFirstName() {
-		return representiveFirstName;
-	}
-
-	/**
-	 * @param representiveFirstName the representiveFirstName to set
-	 */
-	public void setRepresentiveFirstName(String representiveFirstName) {
-		this.representiveFirstName = representiveFirstName;
-	}
-
-	/**
-	 * @return the representiveLastName
-	 */
-	public String getRepresentiveLastName() {
-		return representiveLastName;
-	}
-
-	/**
-	 * @param representiveLastName the representiveLastName to set
-	 */
-	public void setRepresentiveLastName(String representiveLastName) {
-		this.representiveLastName = representiveLastName;
-	}
-
-	/**
 	 * @return the representiveAddress
 	 */
 	public String getRepresentiveAddress() {
@@ -237,11 +210,110 @@ public class LoanApplicationRequestBo {
 	}
 
 	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("LoanApplicationRequestBo [amount=");
+		builder.append(amount);
+		builder.append(", term=");
+		builder.append(term);
+		builder.append(", puropse=");
+		builder.append(puropse);
+		builder.append(", corporateName=");
+		builder.append(corporateName);
+		builder.append(", corporateAddress=");
+		builder.append(corporateAddress);
+		builder.append(", corporateLegalStructure=");
+		builder.append(corporateLegalStructure);
+		builder.append(", corporateRevenueLastYear=");
+		builder.append(corporateRevenueLastYear);
+		builder.append(", corporateFinancialStatement=");
+		builder.append(corporateFinancialStatement);
+		builder.append(", corporateAge=");
+		builder.append(corporateAge);
+		builder.append(", corporateCurrentDebt=");
+		builder.append(corporateCurrentDebt);
+		builder.append(", representiveName=");
+		builder.append(representiveName);
+		builder.append(", representiveAddress=");
+		builder.append(representiveAddress);
+		builder.append(", representiveCitizenShip=");
+		builder.append(representiveCitizenShip);
+		builder.append(", representiveDateOfBirth=");
+		builder.append(representiveDateOfBirth);
+		builder.append(", representivePhoneNumber=");
+		builder.append(representivePhoneNumber);
+		builder.append(", representivePassportNumber=");
+		builder.append(representivePassportNumber);
+		builder.append(", representiveEmail=");
+		builder.append(representiveEmail);
+		builder.append("]");
+		return builder.toString();
+	}
+
+	/**
+	 * @return the corporateAge
+	 */
+	public Integer getCorporateAge() {
+		return corporateAge;
+	}
+
+	/**
+	 * @param corporateAge the corporateAge to set
+	 */
+	public void setCorporateAge(Integer corporateAge) {
+		this.corporateAge = corporateAge;
+	}
+
+	/**
+	 * @return the corporateCurrentDebt
+	 */
+	public BigDecimal getCorporateCurrentDebt() {
+		return corporateCurrentDebt;
+	}
+
+	/**
+	 * @param corporateCurrentDebt the corporateCurrentDebt to set
+	 */
+	public void setCorporateCurrentDebt(BigDecimal corporateCurrentDebt) {
+		this.corporateCurrentDebt = corporateCurrentDebt;
+	}
+
+	/**
+	 * @return the representiveName
+	 */
+	public String getRepresentiveName() {
+		return representiveName;
+	}
+
+	/**
+	 * @param representiveName the representiveName to set
+	 */
+	public void setRepresentiveName(String representiveName) {
+		this.representiveName = representiveName;
+	}
+
+	/**
+	 * @return the representiveEmail
+	 */
+	public String getRepresentiveEmail() {
+		return representiveEmail;
+	}
+
+	/**
+	 * @param representiveEmail the representiveEmail to set
+	 */
+	public void setRepresentiveEmail(String representiveEmail) {
+		this.representiveEmail = representiveEmail;
+	}
+
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((amount == null) ? 0 : amount.hashCode());
 		result = prime * result + ((corporateAddress == null) ? 0 : corporateAddress.hashCode());
+		result = prime * result + ((corporateAge == null) ? 0 : corporateAge.hashCode());
+		result = prime * result + ((corporateCurrentDebt == null) ? 0 : corporateCurrentDebt.hashCode());
 		result = prime * result + ((corporateFinancialStatement == null) ? 0 : corporateFinancialStatement.hashCode());
 		result = prime * result + ((corporateLegalStructure == null) ? 0 : corporateLegalStructure.hashCode());
 		result = prime * result + ((corporateName == null) ? 0 : corporateName.hashCode());
@@ -250,8 +322,8 @@ public class LoanApplicationRequestBo {
 		result = prime * result + ((representiveAddress == null) ? 0 : representiveAddress.hashCode());
 		result = prime * result + ((representiveCitizenShip == null) ? 0 : representiveCitizenShip.hashCode());
 		result = prime * result + ((representiveDateOfBirth == null) ? 0 : representiveDateOfBirth.hashCode());
-		result = prime * result + ((representiveFirstName == null) ? 0 : representiveFirstName.hashCode());
-		result = prime * result + ((representiveLastName == null) ? 0 : representiveLastName.hashCode());
+		result = prime * result + ((representiveEmail == null) ? 0 : representiveEmail.hashCode());
+		result = prime * result + ((representiveName == null) ? 0 : representiveName.hashCode());
 		result = prime * result + ((representivePassportNumber == null) ? 0 : representivePassportNumber.hashCode());
 		result = prime * result + ((representivePhoneNumber == null) ? 0 : representivePhoneNumber.hashCode());
 		result = prime * result + ((term == null) ? 0 : term.hashCode());
@@ -276,6 +348,16 @@ public class LoanApplicationRequestBo {
 			if (other.corporateAddress != null)
 				return false;
 		} else if (!corporateAddress.equals(other.corporateAddress))
+			return false;
+		if (corporateAge == null) {
+			if (other.corporateAge != null)
+				return false;
+		} else if (!corporateAge.equals(other.corporateAge))
+			return false;
+		if (corporateCurrentDebt == null) {
+			if (other.corporateCurrentDebt != null)
+				return false;
+		} else if (!corporateCurrentDebt.equals(other.corporateCurrentDebt))
 			return false;
 		if (corporateFinancialStatement == null) {
 			if (other.corporateFinancialStatement != null)
@@ -317,15 +399,15 @@ public class LoanApplicationRequestBo {
 				return false;
 		} else if (!representiveDateOfBirth.equals(other.representiveDateOfBirth))
 			return false;
-		if (representiveFirstName == null) {
-			if (other.representiveFirstName != null)
+		if (representiveEmail == null) {
+			if (other.representiveEmail != null)
 				return false;
-		} else if (!representiveFirstName.equals(other.representiveFirstName))
+		} else if (!representiveEmail.equals(other.representiveEmail))
 			return false;
-		if (representiveLastName == null) {
-			if (other.representiveLastName != null)
+		if (representiveName == null) {
+			if (other.representiveName != null)
 				return false;
-		} else if (!representiveLastName.equals(other.representiveLastName))
+		} else if (!representiveName.equals(other.representiveName))
 			return false;
 		if (representivePassportNumber == null) {
 			if (other.representivePassportNumber != null)
