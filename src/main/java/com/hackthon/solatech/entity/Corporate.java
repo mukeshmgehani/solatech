@@ -1,4 +1,4 @@
-package com.hackthon.solatech.model;
+package com.hackthon.solatech.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +15,7 @@ import javax.persistence.Id;
 public class Corporate {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	long corporate_id;
+	Long corporate_id;
 	
 	@Column(name = "Name")
 	String name;
