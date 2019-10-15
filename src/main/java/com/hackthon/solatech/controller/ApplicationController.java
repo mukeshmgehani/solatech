@@ -10,8 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hackthon.solatech.model.ApplicationRequestBo;
+import com.hackthon.solatech.model.SolaTechResponseBO;
 import com.hackthon.solatech.service.ApplicationService;
 
+/**
+ * @author hackathon
+ *
+ */
 @RestController
 @RequestMapping("/v1/solatech")
 @CrossOrigin(allowedHeaders = { "*", "/" }, origins = { "*", "/" })
@@ -23,7 +28,7 @@ public class ApplicationController {
 	private static final Logger lOGGER = LoggerFactory.getLogger(ApplicationController.class);
 
 	@PostMapping("/applications")
-	private String createApplication(@RequestBody ApplicationRequestBo applicationRequestBo) {
+	private SolaTechResponseBO createApplication(@RequestBody ApplicationRequestBo applicationRequestBo) {
 
 		lOGGER.info("AccountController.createApplication has been called");
 
