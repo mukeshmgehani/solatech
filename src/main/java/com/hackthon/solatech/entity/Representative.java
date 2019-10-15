@@ -32,8 +32,6 @@ public class Representative {
 	@JoinColumn(name = "corporate_id")
 	private Corporate corporate;
 
-	public Representative() {
-	}
 
 	
 
@@ -60,10 +58,6 @@ public class Representative {
 
 	public LocalDateTime getDateOfBirth() {
 		return dateOfBirth;
-	}
-
-	public void setDate(LocalDateTime dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
 	}
 
 	public String getPhoneNumber() {
@@ -140,6 +134,7 @@ public class Representative {
 	public void setDateOfBirth(LocalDateTime dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
+
 
 	@Override
 	public String toString() {
