@@ -75,24 +75,24 @@ public class LoanApplicationServiceImplTest {
 		LoanApplicationResponseBo actual=(LoanApplicationResponseBo) applicationServiceImpl.createApplication(loanApplicationRequestBo);
 		Assert.assertEquals(loanApplicationResponseBo.getLoanApplicationId(), actual.getLoanApplicationId());
 	}
-	
-	@Test(expected = AccountServiceFailed.class)
-	public void testCreateApplicationWhenErrorOccuredWhileSavingApplicationDataSaved() {
-		LoanApplicationRequestBo loanApplicationRequestBo=prepareLoanApplicationRequestBo();
-		LoanApplicationResponseBo loanApplicationResponseBo=new LoanApplicationResponseBo();
-		loanApplicationResponseBo.setLoanApplicationId(1);
-		Corporate corporate=prepareCorporate(loanApplicationRequestBo);
-		Representative representative=prepareRepresentative(loanApplicationRequestBo, corporate);
-		LoanApplication loanApplication=prepareLoanApplication(loanApplicationRequestBo, corporate, representative);
-		Mockito.when(applicationTransformer.applicationRequestBoToCorporate(loanApplicationRequestBo)).thenReturn(corporate);
-		Mockito.when(applicationTransformer.applicationRequestBoToRepresentative(loanApplicationRequestBo, corporate)).thenReturn(representative);
-		Mockito.when(applicationTransformer.applicationRequestBoToApplication(loanApplicationRequestBo, corporate, representative)).thenReturn(loanApplication);
-		Mockito.when(corporateRepository.save(corporate)).thenReturn(corporate);
-		Mockito.when(representativeRepository.save(representative)).thenReturn(representative);
-		Mockito.when(loanApplicationRepository.save(loanApplication)).thenThrow(new RuntimeException());
-		
-		LoanApplicationResponseBo actual=(LoanApplicationResponseBo) applicationServiceImpl.createApplication(loanApplicationRequestBo);
-	}
+//	
+//	@Test(expected = AccountServiceFailed.class)
+//	public void testCreateApplicationWhenErrorOccuredWhileSavingApplicationDataSaved() {
+//		LoanApplicationRequestBo loanApplicationRequestBo=prepareLoanApplicationRequestBo();
+//		LoanApplicationResponseBo loanApplicationResponseBo=new LoanApplicationResponseBo();
+//		loanApplicationResponseBo.setLoanApplicationId(1);
+//		Corporate corporate=prepareCorporate(loanApplicationRequestBo);
+//		Representative representative=prepareRepresentative(loanApplicationRequestBo, corporate);
+//		LoanApplication loanApplication=prepareLoanApplication(loanApplicationRequestBo, corporate, representative);
+//		Mockito.when(applicationTransformer.applicationRequestBoToCorporate(loanApplicationRequestBo)).thenReturn(corporate);
+//		Mockito.when(applicationTransformer.applicationRequestBoToRepresentative(loanApplicationRequestBo, corporate)).thenReturn(representative);
+//		Mockito.when(applicationTransformer.applicationRequestBoToApplication(loanApplicationRequestBo, corporate, representative)).thenReturn(loanApplication);
+//		Mockito.when(corporateRepository.save(corporate)).thenReturn(corporate);
+//		Mockito.when(representativeRepository.save(representative)).thenReturn(representative);
+//		Mockito.when(loanApplicationRepository.save(loanApplication)).thenThrow(new RuntimeException());
+//		
+//		LoanApplicationResponseBo actual=(LoanApplicationResponseBo) applicationServiceImpl.createApplication(loanApplicationRequestBo);
+//	}
 	
 	private LoanApplicationRequestBo prepareLoanApplicationRequestBo() {
 		LoanApplicationRequestBo loanApplicationRequestBo=new LoanApplicationRequestBo();
