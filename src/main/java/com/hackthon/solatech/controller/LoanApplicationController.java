@@ -31,7 +31,7 @@ public class LoanApplicationController {
 	private static final Logger lOGGER = LoggerFactory.getLogger(LoanApplicationController.class);
 
 	@PostMapping("")
-	private SolaTechResponseBO createApplication(@RequestBody LoanApplicationRequestBo loanApplicationRequestBo) {
+	public SolaTechResponseBO createApplication(@RequestBody LoanApplicationRequestBo loanApplicationRequestBo) {
 
 		lOGGER.info("AccountController.createApplication has been called");
 
@@ -39,7 +39,7 @@ public class LoanApplicationController {
 	}
 	
 	@GetMapping("/status")
-	private StatusRes getStatus(@RequestParam("applicationId") int applicationId) {
+	public StatusRes getStatus(@RequestParam("applicationId") int applicationId) {
 
 		lOGGER.info("getStatus details from application");
 

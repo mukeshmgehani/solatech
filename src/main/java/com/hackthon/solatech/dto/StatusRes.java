@@ -5,34 +5,34 @@ import org.springframework.stereotype.Component;
 @Component
 public class StatusRes {
 	
-	Long applicationId;
-	String statusName;
-	String corporateName;
-	String representativeName;
+	String status;
+	String name;
+	String firstName;
+	String lastName;
 	String amount;
-	public Long getApplicationId() {
-		return applicationId;
+	public String getStatus() {
+		return status;
 	}
-	public void setApplicationId(Long applicationId) {
-		this.applicationId = applicationId;
+	public void setStatus(String status) {
+		this.status = status;
 	}
-	public String getStatusName() {
-		return statusName;
+	public String getName() {
+		return name;
 	}
-	public void setStatusName(String statusName) {
-		this.statusName = statusName;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getCorporateName() {
-		return corporateName;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setCorporateName(String corporateName) {
-		this.corporateName = corporateName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
-	public String getRepresentativeName() {
-		return representativeName;
+	public String getLastName() {
+		return lastName;
 	}
-	public void setRepresentativeName(String representativeName) {
-		this.representativeName = representativeName;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	public String getAmount() {
 		return amount;
@@ -40,6 +40,7 @@ public class StatusRes {
 	public void setAmount(String amount) {
 		this.amount = amount;
 	}
+	
 	
 	
 	
