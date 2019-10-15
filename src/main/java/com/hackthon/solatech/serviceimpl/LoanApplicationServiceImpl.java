@@ -18,6 +18,7 @@ import com.hackthon.solatech.entity.Corporate;
 import com.hackthon.solatech.entity.Representative;
 import com.hackthon.solatech.exceptionhandling.AccountServiceFailed;
 import com.hackthon.solatech.model.LoanApplicationRequestBo;
+import com.hackthon.solatech.model.LoanApplicationResponseBo;
 import com.hackthon.solatech.model.SolaTechResponseBO;
 import com.hackthon.solatech.repository.LoanApplicationRepository;
 import com.hackthon.solatech.repository.CorporateRepository;
@@ -59,17 +60,38 @@ public class LoanApplicationServiceImpl implements LoanApplicationService {
 		lOGGER.info("ApplicationServiceImpl.createApplication has been called");
 
 		Corporate corporate = applicationTransformer.applicationRequestBoToCorporate(loanApplicationRequestBo);
-		corporateRepository.save(corporate);
+
+		try{
+			corporateRepository.save(corporate);
+		}catch (CustomExceptionHandler e) {
+			throw new AccountServiceFailed("Corprate Data has been failed to save \n"+e.getMessage());
+		}
+		
 
 		Representative representative = applicationTransformer
 				.applicationRequestBoToRepresentative(loanApplicationRequestBo, corporate);
-		representativeRepository.save(representative);
+		
+		try{
+			representativeRepository.save(representative);
+		}catch (CustomExceptionHandler e) {
+			throw new AccountServiceFailed("Represtative Data has been failed to save \n"+e.getMessage());
+		}
+		
+		
+		
 		LoanApplication loanApplication = applicationTransformer
 				.applicationRequestBoToApplication(loanApplicationRequestBo, corporate, representative);
-		loanApplicationRepository.save(loanApplication);
-		SolaTechResponseBO solaTechResponseBO = new SolaTechResponseBO();
-		SolatechUtil.prepareSolatechReponseBO(solaTechResponseBO, "Application has been submitted", HttpStatus.CREATED);
-		return solaTechResponseBO;
+		
+		try{
+			loanApplicationRepository.save(loanApplication);
+		}catch (CustomExceptionHandler e) {
+			throw new AccountServiceFailed("Loan Application Data has been failed to save \n"+e.getMessage());
+		}
+		
+		LoanApplicationResponseBo loanApplicationResponseBo=new LoanApplicationResponseBo();
+		loanApplicationResponseBo.setLoanApplicationId(loanApplication.getId());
+		SolatechUtil.prepareSolatechReponseBO(loanApplicationResponseBo, "Application has been submitted", HttpStatus.CREATED);
+		return loanApplicationResponseBo;
 	}
 
 	/**
