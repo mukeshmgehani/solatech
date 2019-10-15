@@ -17,7 +17,6 @@ import com.hackthon.solatech.dto.StatusRes;
 import com.hackthon.solatech.entity.Corporate;
 import com.hackthon.solatech.entity.LoanApplication;
 import com.hackthon.solatech.entity.Representative;
-import com.hackthon.solatech.exceptionhandling.AccountServiceFailed;
 import com.hackthon.solatech.model.LoanApplicationRequestBo;
 import com.hackthon.solatech.model.LoanApplicationResponseBo;
 import com.hackthon.solatech.repository.CorporateRepository;
@@ -136,7 +135,7 @@ private Representative prepareRepresentative(LoanApplicationRequestBo loanApplic
 	representative.setCitizenShip(loanApplicationRequestBo.getRepresentiveCitizenShip());
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_FORMATTER);
     LocalDate formatDateTime = LocalDate.parse(loanApplicationRequestBo.getRepresentiveDateOfBirth(), formatter);
-	representative.setDate(formatDateTime.atStartOfDay());
+	representative.setDateOfBirth(formatDateTime.atStartOfDay());
 	representative.setName(loanApplicationRequestBo.getRepresentiveName());
 	representative.setEmail(loanApplicationRequestBo.getRepresentiveEmail());
 	representative.setPassportNumber(loanApplicationRequestBo.getRepresentivePassportNumber());
