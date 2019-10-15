@@ -5,7 +5,7 @@
  */
 package com.hackthon.solatech.entity;
 
-import java.time.LocalDateTime;
+import java.math.BigDecimal;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * @author User1
+ * @author hackathon
  *
  */
 @Entity
@@ -21,85 +21,81 @@ public class Application {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer userId;
-	private String userName;
-	private String password;
-	private String userEmail;
-	private String mobileNo;
-	private LocalDateTime dateOfBirth;
-	
+	private Integer id;
+	private BigDecimal amount;
+	private Integer term;
+	private String puropse;
+
 	public Application() {
-		
-	}
 
-	public Integer getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getUserEmail() {
-		return userEmail;
-	}
-
-	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
-	}
-
-	public String getMobileNo() {
-		return mobileNo;
-	}
-
-	public void setMobileNo(String mobileNo) {
-		this.mobileNo = mobileNo;
 	}
 
 	/**
-	 * @return the dateOfBirth
+	 * @param amount
+	 * @param term
+	 * @param puropse
 	 */
-	public LocalDateTime getDateOfBirth() {
-		return dateOfBirth;
-	}
-
-	/**
-	 * @param dateOfBirth the dateOfBirth to set
-	 */
-	public void setDateOfBirth(LocalDateTime dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
-
-	/**
-	 * @param userName
-	 * @param password
-	 * @param userEmail
-	 * @param mobileNo
-	 */
-	public Application(String userName, String password, String userEmail, String mobileNo,LocalDateTime dateOfBirth) {
+	public Application(BigDecimal amount, Integer term, String puropse) {
 		super();
-		this.userName = userName;
-		this.password = password;
-		this.userEmail = userEmail;
-		this.mobileNo = mobileNo;
-		this.dateOfBirth=dateOfBirth;
+		this.amount = amount;
+		this.term = term;
+		this.puropse = puropse;
 	}
 
-	
+	/**
+	 * @return the id
+	 */
+	public Integer getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return the amount
+	 */
+	public BigDecimal getAmount() {
+		return amount;
+	}
+
+	/**
+	 * @param amount the amount to set
+	 */
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
+
+	/**
+	 * @return the term
+	 */
+	public Integer getTerm() {
+		return term;
+	}
+
+	/**
+	 * @param term the term to set
+	 */
+	public void setTerm(Integer term) {
+		this.term = term;
+	}
+
+	/**
+	 * @return the puropse
+	 */
+	public String getPuropse() {
+		return puropse;
+	}
+
+	/**
+	 * @param puropse the puropse to set
+	 */
+	public void setPuropse(String puropse) {
+		this.puropse = puropse;
+	}
+
 }

@@ -1,10 +1,11 @@
 package com.hackthon.solatech.service;
 
 import com.hackthon.solatech.model.ApplicationRequestBo;
+import com.hackthon.solatech.model.SolaTechResponseBO;
 
 public interface ApplicationService {
 	
-	String createApplication(ApplicationRequestBo applicationRequestBo);
+	SolaTechResponseBO createApplication(ApplicationRequestBo applicationRequestBo);
 
 
 
