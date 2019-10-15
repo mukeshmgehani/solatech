@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.hackthon.solatech.model.Corporate;
+
 /**
  * 
  * @author hackathon Representative of the Corporate
