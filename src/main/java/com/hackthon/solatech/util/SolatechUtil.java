@@ -1,7 +1,8 @@
+
 /**
  * 
  */
-package com.hackathon.solatech;
+package com.hackthon.solatech.util;
 
 import org.springframework.http.HttpStatus;
 
