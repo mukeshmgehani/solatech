@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import com.hackathon.solatech.SolatechUtil;
 import com.hackthon.solatech.dto.ApplicationTransformer;
 import com.hackthon.solatech.dto.StatusDTO;
 import com.hackthon.solatech.entity.Application;
@@ -17,6 +16,7 @@ import com.hackthon.solatech.model.ApplicationRequestBo;
 import com.hackthon.solatech.model.SolaTechResponseBO;
 import com.hackthon.solatech.repository.ApplicationRepository;
 import com.hackthon.solatech.service.ApplicationService;
+import com.hackthon.solatech.util.SolatechUtil;
 
 /**
  * @author User1
