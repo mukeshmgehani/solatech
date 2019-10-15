@@ -4,4 +4,6 @@ import com.hackthon.solatech.entity.Account;
 
 public interface AccountService {
 	public Account createAccount(Account account);
+
+	public Account getAccount(String accountId);
 }
