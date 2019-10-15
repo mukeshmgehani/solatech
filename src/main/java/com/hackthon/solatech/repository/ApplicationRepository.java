@@ -14,9 +14,10 @@ import com.hackthon.solatech.entity.Application;
 @Repository
 public interface ApplicationRepository extends JpaRepository<Application, Integer> {
 	
-//	 @Query("select cName,rName,amount,statusType from application app where c.name like %?1")
-//	   public StatusRes getStatusByApplicationId(Integer applicationId);
-//	
+	 //@Query("select app.amount,app.status,app.corporateId,app.representativeId from application as app where app.id = ?")
+	 @Query("select amount from Application  where id = ?1")
+	 public StatusRes getStatusByApplicationId(Integer applicationId);
+	
 	
 
 
