@@ -91,7 +91,7 @@ private Representative prepareRepresentative(LoanApplicationRequestBo loanApplic
 	representative.setCitizenShip(loanApplicationRequestBo.getRepresentiveCitizenShip());
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_FORMATTER);
     LocalDate formatDateTime = LocalDate.parse(loanApplicationRequestBo.getRepresentiveDateOfBirth(), formatter);
-	representative.setDate(formatDateTime.atStartOfDay());
+	representative.setDateOfBirth(formatDateTime.atStartOfDay());
 	representative.setName(loanApplicationRequestBo.getRepresentiveName());
 	representative.setEmail(loanApplicationRequestBo.getRepresentiveEmail());
 	representative.setPassportNumber(loanApplicationRequestBo.getRepresentivePassportNumber());
