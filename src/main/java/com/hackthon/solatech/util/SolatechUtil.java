@@ -18,5 +18,7 @@ public class SolatechUtil {
 		solaTechResponseBO.setMessage(message);
 		solaTechResponseBO.setStatus(httpStatus.toString());
 	}
+	
+	SolatechUtil(){}
 
 }

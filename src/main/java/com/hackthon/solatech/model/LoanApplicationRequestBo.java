@@ -307,7 +307,7 @@ public class LoanApplicationRequestBo {
 	}
 
 	@Override
-	public int hashCode() { //NO SONAR
+	public int hashCode() { //NOSONAR
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((amount == null) ? 0 : amount.hashCode());
@@ -331,7 +331,7 @@ public class LoanApplicationRequestBo {
 	}
 
 	@Override
-	public boolean equals(Object obj) {//NOSONAR
+	public boolean equals(Object obj) { //NOSONAR
 		if (this == obj)
 			return true;
 		if (obj == null)
