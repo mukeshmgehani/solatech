@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import com.hackathon.solatech.SolatechUtil;
-import com.hackathon.solatech.exception.CustomExceptionHandler;
 import com.hackthon.solatech.dto.ApplicationTransformer;
 import com.hackthon.solatech.dto.StatusRes;
 import com.hackthon.solatech.entity.Application;
@@ -18,6 +16,7 @@ import com.hackthon.solatech.model.ApplicationRequestBo;
 import com.hackthon.solatech.model.SolaTechResponseBO;
 import com.hackthon.solatech.repository.ApplicationRepository;
 import com.hackthon.solatech.service.ApplicationService;
+import com.hackthon.solatech.util.SolatechUtil;
 
 /**
  * @author User1
@@ -58,7 +57,7 @@ public class ApplicationServiceImpl implements ApplicationService {
 	@Override
 	 public StatusRes getStatus(int applicationId) {
 		 lOGGER.info("ApplicationServiceImpl.getStatus has been called to getStatus details");
-		 applicationRepository.getStatusByApplicationId(applicationId);  
+//		 applicationRepository.getStatusByApplicationId(applicationId);  
 		 return statusDetails;
 		
 	}

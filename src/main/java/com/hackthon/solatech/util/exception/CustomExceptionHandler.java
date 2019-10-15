@@ -1,6 +1,6 @@
-package com.hackathon.solatech.exception;
+package com.hackthon.solatech.util.exception;
 
-public class CustomExceptionHandler  extends Exception{  
+public class CustomExceptionHandler  extends RuntimeException{  
 	/**
 	 * 
 	 */

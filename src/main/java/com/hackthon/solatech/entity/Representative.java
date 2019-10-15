@@ -104,6 +104,21 @@ public class Representative {
 		this.lastName = lastName;
 	}
 
+	
+	/**
+	 * @return the corporate
+	 */
+	public Corporate getCorporate() {
+		return corporate;
+	}
+
+	/**
+	 * @param corporate the corporate to set
+	 */
+	public void setCorporate(Corporate corporate) {
+		this.corporate = corporate;
+	}
+
 	@Override
 	public String toString() {
 		return String.format("Representative[id=%d, firstName='%s', lastName='%s']", id, firstName, lastName);
