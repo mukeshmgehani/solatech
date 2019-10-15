@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.hackthon.solatech.dto.ApplicationTransformer;
-import com.hackthon.solatech.dto.StatusDTO;
+import com.hackthon.solatech.dto.StatusRes;
 import com.hackthon.solatech.entity.Application;
 import com.hackthon.solatech.model.ApplicationRequestBo;
 import com.hackthon.solatech.model.SolaTechResponseBO;
@@ -35,8 +35,11 @@ public class ApplicationServiceImpl implements ApplicationService {
 	private ApplicationTransformer applicationTransformer;
 	
 	@Autowired
-	StatusDTO statusDetails;
+	StatusRes statusDetails;
 	
+	/**
+	 * save loanapplication form
+	 */
 	@Override
 	public SolaTechResponseBO createApplication(ApplicationRequestBo applicationRequestBo) {
 		lOGGER.info("ApplicationServiceImpl.createApplication has been called");
@@ -48,8 +51,13 @@ public class ApplicationServiceImpl implements ApplicationService {
 		return solaTechResponseBO;
 	}
 	
-	 public StatusDTO getStatus(int applicationId) {
-		 
+	/**
+	 * Get Status according to applicationId
+	 */
+	@Override
+	 public StatusRes getStatus(int applicationId) {
+		 lOGGER.info("ApplicationServiceImpl.getStatus has been called to getStatus details");
+//		 applicationRepository.getStatusByApplicationId(applicationId);  
 		 return statusDetails;
 		
 	}

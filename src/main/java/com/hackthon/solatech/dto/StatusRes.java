@@ -3,7 +3,7 @@ package com.hackthon.solatech.dto;
 import org.springframework.stereotype.Component;
 
 @Component
-public class StatusDTO {
+public class StatusRes {
 	
 	Long applicationId;
 	String statusName;
