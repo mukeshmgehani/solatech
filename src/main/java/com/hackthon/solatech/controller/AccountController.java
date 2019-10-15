@@ -22,27 +22,27 @@ public class AccountController {
 	@Autowired
 	private AccountService accountService;
 
-	private static final Logger lOGGER = LoggerFactory.getLogger(LoanApplicationController.class);
+	private static final Logger lOGGER = LoggerFactory.getLogger(AccountController.class);
 
 	@PostMapping
-	private Account createAccount(@RequestBody Account accountreq) {
+	public Account createAccount(@RequestBody Account account) {
 
 		lOGGER.info("AccountController.createAccount : ENTRY");
 		try {
-			if (accountreq == null) {
+			if (account == null) {
 				throw new AccountServiceFailed("Account Details not found");
 			}
 
-			accountreq = accountService.createAccount(accountreq);
+			account = accountService.createAccount(account);
 		} catch (AccountServiceFailed e) {
 			throw new AccountServiceFailed("Internal Server Exception while getting exception");
 		}
 		lOGGER.info("AccountController.createAccount : EXIT");
-		return accountreq;
+		return account;
 	}
 
 	@GetMapping
-	private Account getAccount(String accountId) {
+	public Account getAccount(String accountId) {
 		lOGGER.info("AccountController.getAccount : ENTRY");
 		Account account = null;
 		try {

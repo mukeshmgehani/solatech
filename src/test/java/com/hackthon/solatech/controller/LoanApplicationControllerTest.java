@@ -3,15 +3,17 @@
  */
 package com.hackthon.solatech.controller;
 
-import static org.junit.Assert.*;
-
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import com.hackthon.solatech.model.LoanApplicationRequestBo;
+import com.hackthon.solatech.model.SolaTechResponseBO;
 import com.hackthon.solatech.service.LoanApplicationService;
 
 /**
@@ -35,8 +37,12 @@ public class LoanApplicationControllerTest {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void createApplicationTest() {
+		LoanApplicationRequestBo loanApplicationRequestBo=new LoanApplicationRequestBo();
+		SolaTechResponseBO solaTechResponseBO=new SolaTechResponseBO();
+		Mockito.when(loanApplicationService.createApplication(loanApplicationRequestBo)).thenReturn(solaTechResponseBO);
+		SolaTechResponseBO actual=loanApplicationController.createApplication(loanApplicationRequestBo);
+		Assert.assertEquals(solaTechResponseBO, actual);
 	}
 
 }
