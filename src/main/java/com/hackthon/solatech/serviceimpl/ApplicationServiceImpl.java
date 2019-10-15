@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.hackathon.solatech.SolatechUtil;
 import com.hackthon.solatech.dto.ApplicationTransformer;
+import com.hackthon.solatech.dto.StatusDTO;
 import com.hackthon.solatech.entity.Application;
 import com.hackthon.solatech.model.ApplicationRequestBo;
 import com.hackthon.solatech.model.SolaTechResponseBO;
@@ -33,6 +34,9 @@ public class ApplicationServiceImpl implements ApplicationService {
 	@Autowired
 	private ApplicationTransformer applicationTransformer;
 	
+	@Autowired
+	StatusDTO statusDetails;
+	
 	@Override
 	public SolaTechResponseBO createApplication(ApplicationRequestBo applicationRequestBo) {
 		lOGGER.info("ApplicationServiceImpl.createApplication has been called");
@@ -42,6 +46,12 @@ public class ApplicationServiceImpl implements ApplicationService {
 		SolaTechResponseBO solaTechResponseBO=new SolaTechResponseBO();
 		SolatechUtil.prepareSolatechReponseBO(solaTechResponseBO, "Application has been submitted", HttpStatus.CREATED);
 		return solaTechResponseBO;
+	}
+	
+	 public StatusDTO getStatus(int applicationId) {
+		 
+		 return statusDetails;
+		
 	}
 	
 
