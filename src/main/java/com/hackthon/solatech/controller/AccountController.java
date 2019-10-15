@@ -21,7 +21,7 @@ public class AccountController {
 	@Autowired
 	private AccountService accountService;
 
-	private static final Logger lOGGER = LoggerFactory.getLogger(ApplicationController.class);
+	private static final Logger lOGGER = LoggerFactory.getLogger(LoanApplicationController.class);
 
 	@PostMapping
 	private Account createAccount(@RequestBody Account accountreq) {
