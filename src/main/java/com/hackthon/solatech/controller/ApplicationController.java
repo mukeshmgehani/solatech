@@ -4,11 +4,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hackthon.solatech.dto.StatusRes;
 import com.hackthon.solatech.model.ApplicationRequestBo;
 import com.hackthon.solatech.model.SolaTechResponseBO;
 import com.hackthon.solatech.service.ApplicationService;
@@ -18,7 +21,7 @@ import com.hackthon.solatech.service.ApplicationService;
  *
  */
 @RestController
-@RequestMapping("/v1/solatech")
+@RequestMapping("/v1/loanapplication")
 @CrossOrigin(allowedHeaders = { "*", "/" }, origins = { "*", "/" })
 public class ApplicationController {
 
@@ -27,12 +30,20 @@ public class ApplicationController {
 
 	private static final Logger lOGGER = LoggerFactory.getLogger(ApplicationController.class);
 
-	@PostMapping("/applications")
+	@PostMapping("")
 	private SolaTechResponseBO createApplication(@RequestBody ApplicationRequestBo applicationRequestBo) {
 
 		lOGGER.info("AccountController.createApplication has been called");
 
 		return applicationService.createApplication(applicationRequestBo);
 	}
+	
+	@GetMapping("/status")
+	private StatusRes getStatus(@RequestParam("applicationId") int applicationId) {
 
+		lOGGER.info("getStatus details from application");
+
+		return applicationService.getStatus(applicationId);
+	}
+	
 }
